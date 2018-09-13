@@ -1,0 +1,44 @@
+body {
+    background: #bbff99;
+}
+.landingpage {
+    height: 100vh;
+    width: 100vw;
+}
+
+.landingnav {
+    border-bottom:1px solid rgba(0, 0, 0, .3);
+    width:100vw;
+    height:10vh;
+    background: #660033;
+}
+.logins {
+    float:right;
+    margin:2%;
+    
+}
+
+.logins a {
+    color:white;  
+    text-decoration: none; 
+}
+.welcome {
+    width:100vw;
+    height:80vh;
+    text-align:center;
+    justify-content: center;  
+}
+
+.welcome h1 {
+    width:100vw;
+}
+.intro {
+    display:flex;
+}
+.welcome p {
+    height:25vh;
+    width:49vw;
+    justify-content:left;
+    text-align: left;
+    padding:2%;
+}
