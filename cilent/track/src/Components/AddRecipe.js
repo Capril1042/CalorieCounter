@@ -2,9 +2,9 @@ import React,  { Component } from 'react';
 
 const AddRecipe = (props) => {
     return(
-        <div>
+        <section className="addrecipe">
         Add recipe
-        </div>
+        </section>
     )
 }
 
