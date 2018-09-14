@@ -10,7 +10,7 @@ const LandingPage = (props) => {
                 <a href="/sign-up"> Sign-Up</a>
                 </div>
             </div>
-            <div className="welcome">
+            <section className="welcome">
                 <h1>Welcome to Recipe Tracker</h1>
                 <div className="intro">
                 <p> Recipe tracker not only allows you to keep all your favorite
@@ -18,7 +18,7 @@ const LandingPage = (props) => {
                 content of your favorite recipes. </p>
                 <p> Sign-up today to start keeping track of your favorite recipes.</p>
             </div>
-            </div>
+            </section>
         </div>
     )
 }
