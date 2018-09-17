@@ -10,6 +10,7 @@ mongoose.connect(config.DATABASE)
 
 const { User } = require('./models/user');
 const { Recipe } = require('./models/recipes');
+const { auth } = require('./middleware/auth');
 
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -19,7 +20,7 @@ app.use(cookieParser());
 app.get('/api/getRecipe', (req,res)=>{
     let id =req.query.id;
 
-    Recipe.findbyId(id, (err, doc)=> {
+    Recipe.findById(id, (err, doc)=> {
         if(err) return res.status(400).send(err);
         res.send(doc)
     })
@@ -36,6 +37,46 @@ app.get('/api/recipes',(req, res)=> {
     })
 })
 
+app.get('/api/getRecipeAdder', (req,res)=>{
+    let id = req.quet.id;
+
+    User.findById(id,(err, doc)=>{
+        if (err) return res.status(400).send(err);
+        res.json({
+            username: doc.username,
+        })
+    })
+})
+
+app.get('/api/users', (req, res)=>{
+    User.find({},(err, users)=>{
+        res.status(200).send(users)
+    })
+})
+
+app.get('/api/users_recipes', (req, res)=>{
+    Recipe.find({ownerId:req.query.user}).exec((err,docs)=>{
+        if(err) return res.status(400).send(err);
+        res.send(docs)
+    })
+})
+
+app.get('/api/logout', auth, (req, res)=> {
+   req.user.deleteToken(req.token, (err,user)=>{
+       if (err) return res.status(400).send(err);
+       res.sendStatus(200)
+   })   
+})
+
+app.get('/api/auth', auth, (req, res)=>{
+    res.json({
+        isAuth:true,
+        id:req.user._id,
+        email: req.user.email,
+        username: req.user.username
+    })
+})
+
 // POST //
 
 app.post('/api/recipe', (req,res) => {
@@ -46,6 +87,43 @@ app.post('/api/recipe', (req,res) => {
         res.status(200).json({
             post:true,
             recipeId:doc._id
+        })
+    })
+})
+
+app.post('/api/register', (req, res)=> {
+    const user = new User(req.body)
+
+    user.save((err,doc)=>{
+        if (err) return res.json({success:fasle});
+        res.staus(200).json({
+            success:true,
+            user:doc
+        })
+    })
+})
+
+app.post('/api/login', (req, res)=> {
+
+    User.findOne({'email':req.body.email}, (err, user)=>{
+        if(!user) return res.json({isAuth:false, message: 'email not found'})
+
+        user.comparePassword(req.body.password,(err, isMatch)=>{
+            if(!isMatch) return res.json({
+                isAuth:false,
+                message:'Wrong password'
+            });
+
+            user.generateToken((err, user)=>{
+                if(err) return res.status(400).send(err);
+
+                res.cookie('auth', user.token).json({
+                    isAuth:ture,
+                    id:user._id,
+                    email:user.email
+               
+                })
+            })
         })
     })
 })
@@ -71,6 +149,7 @@ app.delete('/api/delete_recipe', (req, res)=>{
         res.json(true)
     })
 })
+
 
 const port = process.env.PORT || 3001;
 app.listen(port,()=> {
