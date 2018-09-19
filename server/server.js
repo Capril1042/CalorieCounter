@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose');
 const config = require('./config/config').get(process.env.NODE_ENV);
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.DATABASE)
+mongoose.set('useCreateIndex', true);
+mongoose.connect(config.DATABASE,{ useNewUrlParser: true });
 
 const { User } = require('./models/user');
 const { Recipe } = require('./models/recipes');
@@ -38,7 +39,7 @@ app.get('/api/recipes',(req, res)=> {
 })
 
 app.get('/api/getRecipeAdder', (req,res)=>{
-    let id = req.quet.id;
+    let id = req.query.id;
 
     User.findById(id,(err, doc)=>{
         if (err) return res.status(400).send(err);
@@ -118,7 +119,7 @@ app.post('/api/login', (req, res)=> {
                 if(err) return res.status(400).send(err);
 
                 res.cookie('auth', user.token).json({
-                    isAuth:ture,
+                    isAuth:true,
                     id:user._id,
                     email:user.email
                
