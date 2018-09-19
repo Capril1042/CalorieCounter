@@ -1,0 +1,131 @@
+
+section {
+    height: 100vh;
+    width: 100vw;
+   
+}
+
+.landingpage {
+    background: #bbff99;
+}
+
+.landingnav {
+    border-bottom:1px solid rgba(0, 0, 0, .3);
+    width:100vw;
+    height:10vh;
+    background: #660033;
+}
+.logins {
+    float:right;
+    margin:2%;
+    
+}
+
+.logins a {
+    color:white;  
+    text-decoration: none; 
+}
+.welcome {
+    width:100vw;
+    height:80vh;
+    text-align:center;
+    justify-content: center;  
+}
+
+.welcome h1 {
+    width:100vw;
+}
+.intro {
+    display:flex;
+}
+.welcome p {
+    height:25vh;
+    width:49vw;
+    justify-content:left;
+    text-align: left;
+    padding:2%;
+}
+
+/* Sign In Page */
+
+.signinpage {
+    background-color:#660033; 
+    
+}
+.signin {
+    justify-content:center;
+    margin-top:0;
+    padding:5%;
+}
+
+ .signinform {
+    background:#bbff99;
+    width:50vw;
+    height:30vh;
+    margin: auto;
+    padding:2%;
+    justify-content:center;
+    text-align:center;
+    box-shadow: 1px 1px 1px black;
+    
+ }
+    
+
+.signinform h2, {
+    font-size:2em;
+}
+.signinform h6 {
+    font-size:1em;
+}
+.signinform label, input {
+    font-size: 1.2em
+}
+
+/* Sign Up Page */
+
+.signuppage {
+    background-color:#660033; 
+    
+}
+.signup {
+    
+    margin-top:0;
+    padding:5%;
+}
+
+ .signupform {
+    background:#bbff99;
+    width:50vw;
+    height:40vh;
+    margin: auto;
+    padding:4%;
+    box-shadow: 1px 1px 1px black;
+    display:block;
+    
+ }
+    
+
+.signupform h2, {
+     justify-content:center;
+    text-align:center;
+    font-size:2em;
+}
+.signupform h6 {
+    justify-content:center;
+    text-align:center;
+    font-size:1em;
+}
+.signupform label {
+    width:100%;
+    font-size: 1.2em;
+    
+}
+
+.signupform input {
+    width:100%;
+    font-size:1.2em;
+}
+
+.signupform button {
+width:25%;
+}
