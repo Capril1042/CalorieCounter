@@ -1,4 +1,4 @@
-const mongoose =require ('mongoose');
+const mongoose = require ('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const config = require('./../config/config').get(process.env.NODE_ENV);
@@ -18,7 +18,8 @@ const userSchema = mongoose.Schema({
     },
     username :{
         type:String,
-        maxlength:100
+        maxlength:100,
+        unique:1
     },
     token:{
         type:String
@@ -27,14 +28,15 @@ const userSchema = mongoose.Schema({
 })
 
 userSchema.pre('save', function(next) {
-    let user = this;
+    var user = this;
 
     if(user.isModified('password')) {
         bcrypt.genSalt(SALT_I,function(err,salt){
             if(err) return next(err);
+
             bcrypt.hash(user.password, salt, function(err,hash){
                 if (err) return next(err);
-                user.password =hash;
+                user.password = hash;
                 next();
             })
         })
@@ -43,21 +45,21 @@ userSchema.pre('save', function(next) {
     }
 })
 
-userSchema.methods.comparePassword = function(candidatePassword, cb){
-    bcrypt.compare(candidatePassword, this.password, function(err, isMatch){
-        if (err) return cb(err);
+userSchema.methods.comparePassword = function(candidatePassword,cb){
+    bcrypt.compare(candidatePassword,this.password,function(err,isMatch){
+        if(err) return cb(err);
         cb(null,isMatch);
     })
 }
 
 userSchema.methods.generateToken = function(cb){
-    let user = this;
-    let token = jwt.sign(user._id.toHexString(),config.SECERT);
+    var user = this;
+    var token = jwt.sign(user._id.toHexString(),config.SECRET);
 
     user.token = token;
-    user.save(function(err, user){
-        if (err) return cb(err);
-        cb(null, user)
+    user.save(function(err,user){
+        if(err) return cb(err);
+        cb(null,user)
     })
 }
 

@@ -9,18 +9,27 @@ import AddRecipe from './Components/AddRecipe';
 import RecipeDetails from './Components/RecipeDetails';
 import RecipeView from './Components/recipeview';
 import Recipes from './Components/recipes';
+import UserRecipes from './Components/userrecipes';
+import EditRecipe from './Components/editRecipe';
+import Logout from './Components/logout';
+
+
+import Auth from './Components/auth';
 
 const Routes = () => {
     return (
         <Switch>
-            <Route path="/" exact component={LandingPage} />
-            <Route path="/sign-in" component={SignIn} />
-            <Route path="/sign-up" component={SignUp} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/add-recipe" component={AddRecipe} />
+            <Route path="/" exact component={Auth(LandingPage,null)} />
+            <Route path="/signin"  exact component={Auth(SignIn,false)} />
+            <Route path="/user/logout" exact component={Auth(Logout,true)} />
+            <Route path="/signup" exact component={Auth(SignUp,null)} />
+            <Route path="/user" exact component={Auth(Dashboard,true)} />
+            <Route path="/user/add" exact component={Auth(AddRecipe,true)} />
             <Route path="/recipe-details" component={RecipeDetails} />
             <Route path="/recipes" component={Recipes} />
-            <Route path="/recipe/:id" exact component={RecipeView} />
+            <Route path="/recipe/:id" exact component={Auth(RecipeView,null)} />
+            <Route path="/user/user-recipes" exact component={Auth(UserRecipes,true)} />
+            <Route path="/user/edit-recipe/:id" exact component={Auth(EditRecipe,true)} />
         </Switch>
     );
 };

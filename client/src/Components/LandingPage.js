@@ -6,8 +6,8 @@ const LandingPage = (props) => {
         <div className="landingpage">
             <div className="landingnav">
                 <div className="logins">
-                <a href="/sign-in">Sign-In</a>
-                <a href="/sign-up"> Sign-Up</a>
+                <a href="/signin">Sign-In</a>
+                <a href="/signup"> Sign-Up</a>
                 </div>
             </div>
             <section className="welcome">
