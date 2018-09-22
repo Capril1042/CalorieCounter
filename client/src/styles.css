@@ -1,8 +1,10 @@
+body {
+    font-family: 'Merienda';
+}
 
 section {
     height: 100vh;
-    width: 100vw;
-   
+    width: 100vw;  
 }
 
 .landingpage {
@@ -14,20 +16,25 @@ section {
     width:100vw;
     height:10vh;
     background: #660033;
+    line-height:9vh;
 }
+
+
 .logins {
     float:right;
-    margin:2%;
-    
+    margin:2%;  
 }
 
 .logins a {
     color:white;  
     text-decoration: none; 
 }
+.logins a:hover{
+    color: pink;
+}
 .welcome {
     width:100vw;
-    height:80vh;
+    height:90vh;
     text-align:center;
     justify-content: center;  
 }
@@ -39,12 +46,21 @@ section {
     display:flex;
 }
 .welcome p {
-    height:25vh;
-    width:49vw;
-    justify-content:left;
+    height:20vh;
+    width:43vw;
+    justify-content:center;
     text-align: left;
-    padding:2%;
+    padding:5%;
+    padding-top:10%;
+    margin:1%;
+    background:#ccffb3;
+    border:2px solid #aaff80;
+    border-radius:20%;
+    color:#660033;
+    
 }
+
+
 
 /* Sign In Page */
 
@@ -129,3 +145,88 @@ section {
 .signupform button {
 width:25%;
 }
+
+
+/* DashBoard  */
+
+.userdash {
+    background: #bbff99;
+    justify-content: center;
+    text-align:center;
+    color:#660033;
+    margin-top:0;
+}
+.dashwelcome {
+    padding: 2%;
+}
+.boxesnav {
+    display:flex;
+    justify-content: center;
+    text-align:center;  
+}
+
+
+.navbox {
+    height: 25vh;
+    width: 40vw;
+    margin:2%;
+    color:white;
+    background-color: #660033;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 25vh;
+    border:1px solid black;
+    border-radius:7px;
+}
+
+.navbox a {
+    color: white;
+}
+
+.viewrecipes {
+    background-color:#660033;
+    margin-top:0;
+}
+
+.recipecontainer {
+    padding:2%;
+    justify-content:center;
+    text-align:center;
+    display:flex;
+}
+
+.recipeitem {
+    height:15vh;
+    width:50vw;
+    background-color:#bbff99;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 15vh;
+    border-radius:5px;
+}
+.loadmore {
+    padding:2%;
+    margin-top:2%;
+    background-color:#bf40bf;
+}
+
+.backto {
+    height:5vh;
+    border-radius:7px;
+    background-color: pink;
+}
+.recipe {
+    background: #bbff99;
+    margin-top: 0;
+
+}
+.recipeview h2{
+  justify-content:center;
+  text-align:center;  
+}
+.recipe-recipeview {
+    padding:2%;
+    
+}
+

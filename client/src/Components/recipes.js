@@ -3,9 +3,11 @@ import RecipeContainer from '../containers/recipes'
 
 const Recipes =() => {
     return(
-        <div>
-        <RecipeContainer/>
-        </div>
+        <section className="viewrecipes">
+            <div className="recipecontainer">
+                <RecipeContainer/>
+            </div>
+        </section>
     );
 };
 

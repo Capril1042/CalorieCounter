@@ -13,9 +13,14 @@ class RecipeView extends Component {
         this.props.dispatch(clearRecipeWithAdder())
     }
 
+    handleClick(e){
+        e.preventDefault();
+        window.location.href="/recipes";
+    }
+
     renderRecipe =(recipes) => (
         recipes.recipe ?
-        <div>
+        <div className="recipeview">
         <h2>{recipes.recipe.name} </h2>
         <div>
         <span>Added by</span> {recipes.adder.username}
@@ -29,9 +34,14 @@ class RecipeView extends Component {
     render () {
         let recipes = this.props.recipes
         return (
-            <div>
-            {this.renderRecipe(recipes)}
-            </div>
+            <section className="recipe">
+                <div className="recipe-recipeview">
+
+                    {this.renderRecipe(recipes)}
+                    
+            <button className="backto" onClick={this.handleClick}>back to all recipes</button>
+            
+            </div></section>
         )
     }
 }

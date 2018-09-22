@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 class UserRecipes extends Component {
 
     componentWillMount() {
-        this.props.disatch(getUserRecipes(this.props.user.login.id))
+        this.props.dispatch(getUserRecipes(this.props.user.login.id))
     }
 
     showUserRecipes =(user)=>{
@@ -24,7 +24,9 @@ class UserRecipes extends Component {
                 </td>
                 </tr>
             ))
-        :null
+        :<div>
+        No recipes to show
+        </div>
 }
     render() {
         let user = this.props.user;
