@@ -70,13 +70,14 @@ componentWillUnmount(){
 
     render(){
         let recipes = this.props.recipes;
+        console.log(recipes)
         return (
             <div>
             {
                 recipes.updateRecipe ?
             <div>
-                recipe updated!, <Link to={`/recipes/${recipes.recipe._id}`}>
-                </Link>
+                recipe updated!, <Link to={`/recipe/${recipes.recipe._id}`}>
+               view recipe </Link>
             </div>
             :null
             }

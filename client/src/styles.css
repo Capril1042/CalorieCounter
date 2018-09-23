@@ -279,3 +279,48 @@ margin:2%;
     width:75%;
     
 }
+
+/* user recipes */
+
+.user_recipes_nav {
+    height:10vh;
+    width:100vw;
+    margin-bottom:0;
+    background-color: #660033;
+    display:flex;
+    justify-content:center;
+    
+}
+
+.ur_nav_item{
+    width:50%;
+    line-height:10vh;
+    padding:3%;
+    margin-left:5%;
+}
+
+.ur_nav_item a{
+    color:white;
+}
+
+.ur_nav_item a:hover{
+    color:pink;
+}
+
+.recipe-table{
+    height:90vh;
+    padding:5%;
+    margin-top:0;
+    background-color: #bbff99;
+    color: #660033 ;
+}
+
+.recipe-table h4 {
+    justify-content:center;
+    text-align:center;
+}
+
+.recipe-table table {
+    justify-content:center;
+    text-align:left;
+}

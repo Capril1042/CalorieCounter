@@ -29,7 +29,7 @@ handleInput = (event,name) => {
 showNewRecipe = (recipe)=> (
     recipe.post?
     <div>
-    <Link to={`recipe/${recipe.recipeId}`}>
+    <Link to={`user-recipes`}>
     Click to see recipe!
     </Link>
     </div>

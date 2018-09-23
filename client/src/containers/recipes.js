@@ -8,7 +8,7 @@ import RecipeItem from '../Components/recipeitem';
 class RecipeContainer extends Component {
    
     componentWillMount() {
-        this.props.dispatch(getRecipes(6,0,'desc'))
+        this.props.dispatch(getRecipes(3,0,'desc'))
     }
 
     renderItems = (recipes) => (
@@ -22,7 +22,7 @@ class RecipeContainer extends Component {
 
     loadmore =()=>{
         let count = this.props.recipes.list.length;
-        this.props.dispatch(getRecipes(6,count,'desc', this.props.recipes.list))
+        this.props.dispatch(getRecipes(3,count,'desc', this.props.recipes.list))
     }
 
     render() {

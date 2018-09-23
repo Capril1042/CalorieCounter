@@ -14,12 +14,10 @@ class UserRecipeList extends Component {
         user.userRecipes ? 
             user.userRecipes.map(item => (
                 <tr key={item._id}>
-                    <td><Link to={
-                        `/user/edit-recipe/${item._id}`
-                    }>
-                        {item.name}
-                    </Link></td>
-                    
+                    <td>
+                        <Link to={`/user/edit-recipe/${item._id}`}>
+                            {item.name}
+                        </Link></td>
                     <td>
                         {moment(item.createAt).format("MM/DD/YY")}
                     </td>
@@ -30,24 +28,32 @@ class UserRecipeList extends Component {
 
     render() {
         let user = this.props.user;
+        console.log(user);
         return (
-            <div className="user_recipes">
-
-                <h4>Your Recipes:</h4>
-                <Link to="/user/add"> Add new recipe </Link>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.showUserPosts(user)}
-                    </tbody>
-                </table>
-            </div>
+            <section className="user_recipes">
+                <div className="user_recipes_nav">
+                    <div className="ur_nav_item">
+                        <Link to="/user"> back to dashboard </Link>
+                    </div>
+                    <div className="ur_nav_item">
+                        <Link to="/user/add"> Add new recipe </Link>
+                    </div>
+                </div> 
+                <div className="recipe-table">
+                    <h4>{user.login.username}'s List of Recipes</h4>
+                        <table>
+                             <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    {this.showUserPosts(user)}
+                                </tbody>
+                        </table>
+                </div>
+            </section>
         );
     }
 }

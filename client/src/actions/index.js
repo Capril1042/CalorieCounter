@@ -97,7 +97,7 @@ export function getRecipe(id){
 }
 
 export function updateRecipe(data){
-    const request = axios.post(`/api/recipe_update`)
+    const request = axios.post(`/api/recipe_update`, data)
                     .then(response=> response.data);
 
             return {
@@ -110,7 +110,7 @@ export function deleteRecipe(id) {
     const request = axios.delete(`/api/delete_recipe?id=${id}`)
                     .then(response => response.data)
 
-                return{
+                return {
                     type: 'DELETE_RECIPE',
                     payload:request
                 }

@@ -19,7 +19,7 @@ app.use(cookieParser());
 // GET //
 
 app.get('/api/getRecipe', (req,res)=>{
-    let id =req.query.id;
+    let id = req.query.id;
 
     Recipe.findById(id, (err, doc)=> {
         if(err) return res.status(400).send(err);
