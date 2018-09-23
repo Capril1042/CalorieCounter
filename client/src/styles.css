@@ -77,7 +77,7 @@ section {
  .signinform {
     background:#bbff99;
     width:50vw;
-    height:30vh;
+    height:60vh;
     margin: auto;
     padding:2%;
     justify-content:center;
@@ -94,7 +94,7 @@ section {
     font-size:1em;
 }
 .signinform label, input {
-    font-size: 1.2em
+    font-size: 1em
 }
 
 /* Sign Up Page */
@@ -111,29 +111,29 @@ section {
 
  .signupform {
     background:#bbff99;
-    width:50vw;
-    height:40vh;
+    width:60vw;
+    height:70vh;
     margin: auto;
-    padding:4%;
+    padding:3%;
     box-shadow: 1px 1px 1px black;
     display:block;
     
  }
     
 
-.signupform h2, {
-     justify-content:center;
+.signupform h2 {
+    justify-content:center;
     text-align:center;
-    font-size:2em;
+    font-size: 1.5em;
 }
 .signupform h6 {
     justify-content:center;
     text-align:center;
-    font-size:1em;
+    font-size:.8em;
 }
 .signupform label {
     width:100%;
-    font-size: 1.2em;
+    font-size: 1em;
     
 }
 
@@ -189,6 +189,25 @@ width:25%;
     margin-top:0;
 }
 
+.viewrecipes i {
+color:pink;
+font-size:2em;
+margin:2%;
+
+}
+
+.dashnav {
+    width:100vw;
+    height:8vh;
+    background:#99004d;
+    display:flex;
+    color:pink;
+}
+
+.dashnav .nav{
+    width:50%;
+    
+}
 .recipecontainer {
     padding:2%;
     justify-content:center;
@@ -230,3 +249,33 @@ width:25%;
     
 }
 
+/* recipe form */
+.recipeformadd {
+    display:flex;
+    background-color:#660033;
+}
+.add-recipe-form {
+    height:75vh;
+    width:75vw;
+    padding:5%;
+    margin:auto;
+    background-color:#bbff99;
+    color:#660033;
+    
+    
+}
+
+.add-recipe-form h2 {
+    text-align:center;
+}
+.add-recipe-form input {
+    width:50%;
+    
+}
+.add-recipe-form input:placeholder-shown {
+    color:grey;
+}
+.add-recipe-form textarea{
+    width:75%;
+    
+}

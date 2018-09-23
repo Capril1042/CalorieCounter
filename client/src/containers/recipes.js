@@ -6,7 +6,7 @@ import RecipeItem from '../Components/recipeitem';
 
 
 class RecipeContainer extends Component {
-
+   
     componentWillMount() {
         this.props.dispatch(getRecipes(6,0,'desc'))
     }

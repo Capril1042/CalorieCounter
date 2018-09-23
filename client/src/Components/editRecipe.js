@@ -5,9 +5,10 @@ import { getRecipe, updateRecipe, clearRecipe, deleteRecipe } from '../actions';
 
 
 class EditRecipe extends PureComponent {
+
     state = {
         formdata:{
-            _id:this.props.params.id,
+            _id:this.props.match.params.id,
             name:'',
             ingredients:'',
             directions:''
@@ -15,11 +16,11 @@ class EditRecipe extends PureComponent {
     }
 
 
-handleInput = (event,name) => {
- const newFormdata = {
-     ...this.state.formdata
- }
- newFormdata [name]= event.target.value
+    handleInput = (event,name) => {
+        const newFormdata = {
+            ...this.state.formdata
+    }
+    newFormdata[name] = event.target.value
 
  this.setState ({
      formdata:newFormdata
@@ -41,37 +42,38 @@ deleteIt=()=>{
 
 redirectUser = () => {
     setTimeout(()=> {
-        this.props.history.push('/')
+        this.props.history.push('/user/user-recipes')
     },1000)
 }
 
 componentWillMount(){
-    this.props.dispatch(getRecipe(this.props.match.parms.id))
+    this.props.dispatch(getRecipe(this.props.match.params.id))
 }
 
 componentWillReceiveProps(nextProps) {
-    let recipe = nextProps.recipes.recipe;
+    let r = nextProps.recipes.recipe;
     
-    this.setState({
-        formdata:{
-            _id:recipe._id,
-            name: recipe.name,
-            ingredients: recipe.ingredients,
-            directions: recipe.directions
+    this.setState({ 
+        formdata: {
+            _id:r._id,
+            name:r.name,
+            ingredients:r.ingredients,
+            directions:r.directions
         }
-
     })
 }
+
 
 componentWillUnmount(){
     this.props.dispatch(clearRecipe())
 }
 
     render(){
-        let recipes = this.props.recipes
+        let recipes = this.props.recipes;
         return (
             <div>
-            {recipes.updateRecipe ?
+            {
+                recipes.updateRecipe ?
             <div>
                 recipe updated!, <Link to={`/recipes/${recipes.recipe._id}`}>
                 </Link>
@@ -79,7 +81,7 @@ componentWillUnmount(){
             :null
             }
             {
-                recipes.deleteRecipe ?
+                recipes.recipeDeleted ?
                     <div>
                     Recipe Deleted
                     {this.redirectUser()}
@@ -114,7 +116,7 @@ componentWillUnmount(){
             
             </form>
             </div>
-        )
+        );
 
     }
        
@@ -126,4 +128,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps) (EditRecipe);
+export default connect(mapStateToProps)(EditRecipe);

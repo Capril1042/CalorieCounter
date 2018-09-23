@@ -7,9 +7,9 @@ import { addRecipe, clearNewRecipe } from '../actions';
 class AddRecipe extends Component {
     state = {
         formdata:{
-            name:'',
-            ingredients:'',
-            directions:''
+            name:'name',
+            ingredients:'ingredients',
+            directions:'directions'
         }
     }
 
@@ -35,39 +35,39 @@ showNewRecipe = (recipe)=> (
     </div>
     :null
 )
-submitForm =(e) => {
-e.preventDefault();
-this.props.dispatch(addRecipe)({
-    ...this.state.formdata,
-    ownerId:this.props.user.login.id
-})
 
-}
+  submitForm = (e) => {
+        e.preventDefault();
+        this.props.dispatch(addRecipe({
+            ...this.state.formdata,
+            ownerId:this.props.user.login.id
+        }))
+    }
 
 componentWillUnmount() {
     this.props.dispatch(clearNewRecipe())
 }
     render(){
         return (
-            <div>
-            <form onSubmit={this.submitForm}>
+            <section className="recipeformadd">
+            <form onSubmit={this.submitForm} className="add-recipe-form">
             <h2> Add A New Recipe </h2>
             <input 
             type="text"
-            placeholer="name"
+            placeholder="Recipe Name"
             value={this.state.formdata.name}
             onChange={(event)=> this.handleInput(event,'name')}
             />
 
             <textarea
             
-            placeholer="ingredients"
+            placeholder="ingredients"
             value={this.state.formdata.ingredients}
             onChange={(event)=> this.handleInput(event,'ingredients')}
             />
             <textarea
             
-            placeholer="directions"
+            placeholder="directions"
             value={this.state.formdata.directions}
             onChange={(event)=> this.handleInput(event,'directions')}
             />
@@ -80,7 +80,7 @@ componentWillUnmount() {
             }
             
             </form>
-            </div>
+            </section>
         )
 
     }
@@ -93,4 +93,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps) (AddRecipe);
+export default connect(mapStateToProps)(AddRecipe);

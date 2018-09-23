@@ -57,8 +57,8 @@ class SignUp extends PureComponent {
         let user = this.props.user
         return(
         <section className="signuppage">
-        <div className="signup">
-            <form  onSubmit={this.submitForm} className= "signupform" >
+            <div className="signup">
+                <form  onSubmit={this.submitForm} className= "signupform" >
                 <h2> Sign up for an Account</h2>
                     <label> E-mail: 
                         <input 

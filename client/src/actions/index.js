@@ -59,7 +59,7 @@ export function clearRecipeWithAdder() {
 }
  
  export function addRecipe(recipe) {
-     const request = axios.post('/api/recipe', recipe)
+     const request = axios.post(`/api/recipe`, recipe)
                     .then(response => response.data);
 
                     return {
@@ -86,10 +86,10 @@ export function getUserRecipes(userId) {
 }
 
 export function getRecipe(id){
-    const request = axios.get(`api/getRecipe>id=${id}`)
+    const request = axios.get(`/api/getRecipe?id=${id}`)
                     .then(response => response.data);
 
-    return{
+    return {
         type:'GET_RECIPE',
         payload:request
     }

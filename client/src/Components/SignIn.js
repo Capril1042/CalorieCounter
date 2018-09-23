@@ -39,34 +39,39 @@ class SignIn extends Component {
         let user =this.props.user;
         return(
         <section className="signinpage">
-        <div className="signin">
-            <form  onSubmit={this.submitForm} className= "signinform" >
-                <h2> Sign into existing account</h2>
+            <div className="signin">
+                <form  onSubmit={this.submitForm} className= "signinform" >
+                    <h2> Sign into existing account</h2>
                         <input 
                             type="email"
                             name= "email"
                             value={this.state.email}
                             onChange={this.onChangeEmail}
-                            placeholder=" Enter Email"
-                            />
-                    
-                    
+                            placeholder="Enter Email"
+                        />
                         <input 
                             type="password"
                             name= "password"
                             value={this.state.password}
                             onChange={this.onChangePassword}
-                            placeholder="Enter Password"/>
-        
+                            placeholder="Enter Password"
+                        />
                         <button type="submit">Sign In </button>
-                <h6> Don't have an account? <a href='/signup'> Sign Up today! </a> </h6>
-           <div>
-            {user.login ?
-            <div>{user.login.message}</div> 
-            :null
-            }
-            </div>
-            </form>
+                    <h6> 
+                        Don't have an account? 
+                            <a href='/signup'> 
+                                Sign Up today! 
+                            </a> 
+                    </h6>
+                    <div>
+                        {user.login ?
+                            <div>
+                                {user.login.message}
+                            </div> 
+                        :null
+                    }
+                    </div>
+                </form>
             </div>
         </section>
         );

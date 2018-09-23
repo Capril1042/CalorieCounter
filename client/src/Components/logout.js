@@ -13,7 +13,7 @@ const Logout = (props) => {
     return (
         <div className="logout_container">
             <h1>
-                Sorry to see you go :(
+                You are now being logged out!
             </h1>
         </div>
     );

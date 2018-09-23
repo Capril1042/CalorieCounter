@@ -9,7 +9,7 @@ import AddRecipe from './Components/AddRecipe';
 import RecipeDetails from './Components/RecipeDetails';
 import RecipeView from './Components/recipeview';
 import Recipes from './Components/recipes';
-import UserRecipes from './Components/userrecipes';
+import UserRecipeList from './containers/user_recipes';
 import EditRecipe from './Components/editRecipe';
 import Logout from './Components/logout';
 
@@ -28,7 +28,7 @@ const Routes = () => {
             <Route path="/recipe-details" component={RecipeDetails} />
             <Route path="/recipes" component={Recipes} />
             <Route path="/recipe/:id" exact component={Auth(RecipeView,null)} />
-            <Route path="/user/user-recipes" exact component={Auth(UserRecipes,true)} />
+            <Route path="/user/user-recipes" exact component={Auth(UserRecipeList,true)} />
             <Route path="/user/edit-recipe/:id" exact component={Auth(EditRecipe,true)} />
         </Switch>
     );
