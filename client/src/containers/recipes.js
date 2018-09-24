@@ -27,7 +27,8 @@ class RecipeContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className="allrecipes">
+            <h1> All Recipes </h1>
             {this.renderItems(this.props.recipes)}
             <div className="loadmore" onClick={this.loadmore}>
             Show More Recipes</div>

@@ -6,8 +6,9 @@ const Recipes =() => {
     return(
         <section className="viewrecipes">
             <div className="dashnav"> 
+                <h1> Recipe Tracker</h1>
                 <div className="nav">
-                  <Link to="/user" > <i className="fa fa-home"></i>back to dashboard
+                  <Link to="/user" > dashboard
                 
                 </Link></div>
                 <div className="nav">
