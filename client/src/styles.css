@@ -78,10 +78,6 @@ body {
 
 /* Sign In Page */
 
-.signinpage {
-    background-color:#660033; 
-    
-}
 .signin {
     justify-content:center;
     margin-top:0;
@@ -93,23 +89,30 @@ body {
     width:50vw;
     height:60vh;
     margin: auto;
-    padding:2%;
+    padding:3%;
     justify-content:center;
     text-align:center;
-    box-shadow: 1px 1px 1px black;
+    border-radius:5%;
+    box-shadow: 1px 1px 1px #660033;
     
  }
     
-
 .signinform h2, {
     font-size:2em;
 }
+
 .signinform h6 {
-    font-size:1em;
+    font-size:.8em;
 }
-.signinform label, input {
+
+.signinform input {
     font-size: 1em
 }
+
+.signinform button {
+    margin-top:2%;
+}
+
 
 /* Sign Up Page */
 
@@ -163,13 +166,13 @@ border-radius:4%;
 /* DashBoard  */
 
 .userdash {
-    background: #bbff99;
     justify-content: center;
     text-align:center;
     color:#660033;
     margin-top:0;
 }
 .dashwelcome {
+    font-family: 'Merienda';
     padding: 2%;
 }
 .boxesnav {
@@ -193,9 +196,16 @@ border-radius:4%;
     border-radius:7px;
 }
 
+.navbox:hover{
+    background-color:#003300;
+}
+
 .navbox a {
     color: white;
 }
+
+/* logout */
+
 
 .viewrecipes {
     background-color:#660033;
