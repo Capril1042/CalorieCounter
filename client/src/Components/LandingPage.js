@@ -5,6 +5,7 @@ const LandingPage = (props) => {
     return(
         <div className="landingpage">
             <div className="landingnav">
+                    <h1> Recipe Tracker</h1>
                 <div className="logins">
                     <a href="/signin">Sign-In</a>
                     <a href="/signup"> Sign-Up</a>

@@ -1,6 +1,7 @@
 import React,  { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { getUsers, userRegister} from '../actions';
+import { Link } from 'react-router-dom';
 import '../styles.css';
 
 class SignUp extends PureComponent {
@@ -52,11 +53,29 @@ class SignUp extends PureComponent {
         },this.props.user.users))
         
     }
+     redirectUser = () => {
+        setTimeout(()=> {
+            this.props.history.push('/')
+        },1000)
+    }
 
     render (){
         let user = this.props.user
         return(
         <section className="signuppage">
+            <div>
+               {
+                    user.register ?
+                        <div className="tracker-signup">
+                            You signed up for Recipe Tracker! 
+                            {this.redirectUser()}
+                        </div>
+                    :null
+                }
+            
+            </div>
+
+        
             <div className="signup">
                 <form  onSubmit={this.submitForm} className= "signupform" >
                 <h2> Sign up for an Account</h2>
