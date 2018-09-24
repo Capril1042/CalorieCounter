@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getRecipeWithAdder, clearRecipeWithAdder } from '../actions';;
 
 
@@ -25,8 +26,11 @@ class RecipeView extends Component {
         <div>
         <span>Added by</span> {recipes.adder.username}
         </div>
-        <div>{recipes.recipe.ingredients}</div>
-        <div>{recipes.recipe.directions}</div>
+        <div>
+        <span>ingredients:</span><br></br>{recipes.recipe.ingredients}</div>
+        <div>
+        <span>directions:</span><br></br>
+        {recipes.recipe.directions}</div>
         </div>
         :null
     )
@@ -35,13 +39,23 @@ class RecipeView extends Component {
         let recipes = this.props.recipes
         return (
             <section className="recipe">
+            <div className="dashnav">
+                <h1> Recipe Tracker</h1>
+                <div className="nav">
+                  <Link to="/user" > dashboard
+                
+                </Link></div>
+                <div className="nav">
+                <Link to="/user/logout">
+                            logout!
+                        </Link> 
+                </div> 
+                </div>
                 <div className="recipe-recipeview">
 
                     {this.renderRecipe(recipes)}
-                    
-            <button className="backto" onClick={this.handleClick}>back to all recipes</button>
-            
-            </div></section>
+                </div>
+            </section>
         )
     }
 }

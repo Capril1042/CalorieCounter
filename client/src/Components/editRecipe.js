@@ -64,17 +64,7 @@ class EditRecipe extends PureComponent {
         let recipes = this.props.recipes;
         return (
             <div className="recipe-editpage">
-                {
-                    recipes.updateRecipe ?
-                        <div className="recipe-update">
-                            recipe has been updated!, 
-                            <Link to={`/recipe/${recipes.recipe._id}`}>
-                                view recipe 
-                            </Link>
-                        </div>
-                    :null
-                }
-                {
+              {
                     recipes.recipeDeleted ?
                         <div>
                             Recipe Deleted
@@ -82,7 +72,22 @@ class EditRecipe extends PureComponent {
                         </div>
                     :null
                 }
+                 <div className="dashnav">
+                <h1> Recipe Tracker</h1>
+                <div className="nav">
+                  <Link to="/user" > dashboard
+                
+                </Link></div>
+                <div className="nav">
+                <Link to="/user/logout">
+                            logout!
+                        </Link> 
+                </div> 
+                </div>
 
+
+              
+    
             <form onSubmit={this.submitForm} className="update-form">
                 <h2> Edit Recipe </h2>
                     <input 
@@ -106,7 +111,18 @@ class EditRecipe extends PureComponent {
                     <button type="submit"> Edit Recipe </button>
                     <button onClick={this.deleteIt}>Delete Recipe </button>
             
+              {
+                    recipes.updateRecipe ?
+                        <div className="recipe-update">
+                            recipe has been updated!, 
+                            <Link to={`/recipe/${recipes.recipe._id}`}>
+                                view recipe 
+                            </Link>
+                        </div>
+                    :null
+                }
             </form>
+
         </div>
         );
 

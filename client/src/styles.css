@@ -281,52 +281,75 @@ border-radius:4%;
     border-radius:5%;
 }
 
-/* UserRecipes */
 
 
 .recipe {
-    background: #bbff99;
-    margin-top: 0;
+    font-family: 'Merienda';
+    display:flex;
+    justify-content:center;
+    
 
+}
+.recipeview span {
+    justify-content: left;
+    color:#660033;
+    font-weight:700;
 }
 .recipeview h2{
   justify-content:center;
-  text-align:center;  
+  text-align:center; 
+  font-family: 'Merienda'; 
+  color:#660033;
+  margin-top:25%;
 }
 .recipe-recipeview {
+    margin:5%;
     padding:2%;
+    
     
 }
 
-/* recipe form */
-.recipeformadd {
-    display:flex;
-    background-color:#660033;
+.recipe .dashnav {
+    margin-top:0;
+
 }
-.add-recipe-form {
+
+/*  Add recipe form */
+.recipeformadd, .recipe-editpage {
+    display:flex; 
+    justify-content:center;
+}
+
+.add-recipe-form, .update-form {
+    margin-top:15%;
     height:75vh;
     width:75vw;
     padding:5%;
-    margin:auto;
     background-color:#bbff99;
     color:#660033;
-    
-    
+    border-radius:8%;
+    font-family: 'Merienda';  
 }
 
-.add-recipe-form h2 {
+.add-recipe-form h2, .update-form h2 {
     text-align:center;
 }
-.add-recipe-form input {
+.add-recipe-form input, .update-form input {
     width:50%;
+    height:5vh;
     
 }
 .add-recipe-form input:placeholder-shown {
     color:grey;
 }
-.add-recipe-form textarea{
+.add-recipe-form textarea, .update-form textarea{
     width:75%;
-    
+    height:10vh;
+    margin-top:2%;
+}
+
+.add-recipe-form button {
+width:26%;
 }
 
 /* user recipes */
@@ -360,8 +383,8 @@ border-radius:4%;
     height:90vh;
     padding:5%;
     margin-top:0;
-    background-color: #bbff99;
     color: #660033 ;
+    font-family: 'Merienda';
 }
 
 .recipe-table h4 {
@@ -373,3 +396,5 @@ border-radius:4%;
     justify-content:center;
     text-align:left;
 }
+
+/* edit recipe */

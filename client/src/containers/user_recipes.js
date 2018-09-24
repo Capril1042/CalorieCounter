@@ -21,6 +21,11 @@ class UserRecipeList extends Component {
                     <td>
                         {moment(item.createAt).format("MM/DD/YY")}
                     </td>
+                    <td>
+                    <Link to={`/recipe/${item._id}`}>
+                            View recipe
+                        </Link>
+                    </td>
                 </tr>
             ))
         :null
@@ -45,7 +50,8 @@ class UserRecipeList extends Component {
                              <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Date</th>
+                                    <th>Added</th>
+                                    <th> View it </th>
                                 </tr>
                             </thead>
                                 <tbody>

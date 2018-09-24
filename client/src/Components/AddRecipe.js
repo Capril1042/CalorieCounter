@@ -7,9 +7,9 @@ import { addRecipe, clearNewRecipe } from '../actions';
 class AddRecipe extends Component {
     state = {
         formdata:{
-            name:'name',
-            ingredients:'ingredients',
-            directions:'directions'
+            name:'',
+            ingredients:'',
+            directions:''
         }
     }
 
@@ -50,6 +50,18 @@ componentWillUnmount() {
     render(){
         return (
             <section className="recipeformadd">
+                <div className="dashnav"> 
+                    <h1> Recipe Tracker</h1>
+                        <div className="nav">
+                            <Link to="/user" > dashboard
+                            </Link></div>
+                        <div className="nav">
+                            <Link to="/user/logout">
+                            logout!
+                            </Link> 
+                </div>
+                </div>
+
             <form onSubmit={this.submitForm} className="add-recipe-form">
             <h2> Add A New Recipe </h2>
             <input 
