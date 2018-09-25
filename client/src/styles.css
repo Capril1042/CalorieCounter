@@ -367,12 +367,13 @@ width:26%;
 .ur_nav_item{
     width:50%;
     line-height:10vh;
-    padding:3%;
+    
     margin-left:5%;
 }
 
 .ur_nav_item a{
     color:white;
+    line-height:10vh;
 }
 
 .ur_nav_item a:hover{
